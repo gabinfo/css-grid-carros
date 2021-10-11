@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" referrerpolicy="no-referrer"></script>
+    <title>CSS Grid Layout</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        @font-face {
+            font-family: 'Black Roads';
+            src: url(fontes/Black-roads.otf) format('opentype');
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        header {
+            display: flex;
+            background-color: #e7e7e7;
+            padding: 15px;
+            justify-content: space-between;
+        }
+
+        h1, h3 {
+            font-family: 'Black Roads', Arial, sans-serif;
+            font-weight: lighter;
+        }
+
+        h1.logo {
+            margin-left: 20px;
+        }
+
+        p {
+            font-family: 'Noto Sans', Arial, sans-serif;
+        }
+
+        nav > ul {
+            font-family: 'Black Roads', Arial, sans-serif;
+            font-size: large;
+            margin-top: 10px;
+        }
+
+        nav ul > li {
+            display: inline;
+            margin: 20px 0px 0px 20px;
+        }
+
+        nav ul li > a {
+            color: black;
+            text-decoration: none;
+        }
+
+        label {
+            font-family: 'Noto Sans', Arial, sans-serif;
+        }
+
+        #inicio {
+            padding: 50px 0px;
+        }
+
+        #ofertas-dia {
+            padding: 50px 0px;
+            background-color: black;
+        }
+
+        #ofertas-dia > h1 {
+            color: white;
+            text-align: center;
+            margin: 10px 0px;
+        }
+
+        #vantagens {
+            padding: 50px 0px;
+            background-color: #e7e7e7;
+        }
+
+        #vantagens > h1 {
+            text-align: center;
+            margin: 10px 0px;
+        }
+
+        #planos {
+            padding: 50px 0px;
+        }
+
+        #planos > h1, #planos > p {
+            text-align: center;
+            margin: 10px 0px;
+        }
+
+        #quem-somos {
+            background-color: black;
+            color: white;
+            padding: 50px 0px;
+        }
+
+        #quem-somos h1 {
+            text-align: center;
+            margin: 5px 0px;
+        }
+
+        #quem-somos p {
+            text-align: center;
+            margin: 5px 0px;
+        }
+
+        #conta {
+            background-color: #e7e7e7;
+            padding: 50px 0px;
+        }
+
+        .grid1 {
+            display: grid;
+            grid-template-columns: 680px 500px;
+            justify-content: center;
+        }
+
+        .grid1 > .descricao {
+            margin-right: 100px;
+        }
+
+        .grid1 .descricao > h1 {
+            margin: 16% 0px 0px 0px;
+            text-align: justify;
+        }
+
+        .grid1 .descricao > p {
+            margin: 10px 0px;
+            text-align: justify;
+            font-family: 'Noto Sans';
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: 240px 240px 240px 240px 240px;
+            justify-content: center;
+        }
+
+        .grid2 .v1 > p, .grid2 .v2 > p, .grid2 .v3 > p, .grid2 .v4 > p, .grid2 .v5 > p {
+            font-family: 'Noto Sans';
+        }
+
+        .v1, .v2, .v3, .v4, .v5 {
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: white;
+            color: black;
+            margin: 10px;
+        }
+
+        .v1 > i, .v2 > i, .v3 > i, .v4 > i, .v5 > i {
+            font-size: 40px;
+            margin: 10px 0px;
+        }
+
+        .v1 > p, .v2 > p, .v3 > p, .v4 > p, .v5 > p {
+            margin: 10px 0px;
+            line-height: normal;
+        }
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: 400px 400px 400px;
+            margin: 20px 0px;
+            justify-content: center;
+        }
+
+        .grid4 {
+            display: grid;
+            grid-template-columns: 300px 300px 300px 300px;
+            margin: 20px 0px;
+            justify-content: center;
+        }
+
+        #planos .grid4 > .plano1, #planos .grid4 > .plano2, #planos .grid4 > .plano3, #planos .grid4 > .plano4 {
+            text-align: center;
+            background-color: #e7e7e7;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        #planos .grid4 .plano1 > h3, #planos .grid4 .plano2 > h3, #planos .grid4 .plano3 > h3, #planos .grid4 .plano4 > h3  {
+            margin: 10px 0px;
+        }
+
+        .grid3 > .oferta1, .grid3 > .oferta2, .grid3 > .oferta3, .grid3 > .oferta4, .grid3 > .oferta5, .grid3 > .oferta6 {
+            font-family: 'Noto Sans', Arial, sans-serif;
+            background-color: white;
+            text-align: center;
+            margin: 0px 10px;
+            border-radius: 10px;
+        }
+
+        .oferta1 > h3, .oferta2 > h3, .oferta3 > h3, .oferta4 > h3, .oferta5 > h3, .oferta6 > h3 {
+            margin: 5px 0px;
+            text-align: center;
+        }
+
+        .oferta2 > img, .oferta3 > img, .oferta5 > img {
+            margin: 25px 0px 0px 0px;
+        }
+
+        .lista {
+            list-style: none;
+        }
+
+        .lista > li {
+            margin: 5px 30px;
+            text-align: justify;
+        }
+
+        .btn-assinar {
+            text-align: justify;
+            padding: 10px;
+            margin: 5px 0px;
+            border-radius: 10px;
+            border: 10px;
+            background-color: black;
+            color: #e7e7e7;
+            font-family: 'Black Roads';
+            font-size: large;
+            cursor: pointer;
+        }
+
+        .link-pag, .login {
+            color: black;
+        }
+
+        .botao-plano, .submit {
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: 10px;
+            margin: 10px 0px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            font-family: 'Noto Sans', Arial, sans-serif;
+        }
+
+        .sobre1, .sobre2, .sobre3 {
+            background-color: #e7e7e7;
+            text-align: center;
+            margin: 0 10px;
+            color: black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .sobre1 > i, .sobre2 > i, .sobre3 > i {
+            font-size: 40px;
+            margin: 10px 0px;
+        }
+
+        .sobre1 > h3, .sobre2 > h3, .sobre3 > h3 {
+            margin: 20px 0px;
+        }
+
+        .sobre1 > p, .sobre2 > p, .sobre3 > p {
+            margin: 10px 0px;
+        }
+
+        .gostou, .form {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: justify;
+            margin: 0px 10px;
+        }
+
+        .gostou > h1, .gostou > p, .gostou > span, .gostou > a.link-pag {
+            margin: 10px 0px;
+        }
+
+        input.email, input.senha {
+            font-family: 'Noto Sans', Arial, sans-serif;
+            margin: 10px 0px;
+            width: 300px;
+            padding: 5px;
+            height: 20px;
+            font-size: 18px;
+            border: 1px solid black;
+        }
+
+        input.email {
+            margin-left: 5px;
+        }
+
+        .login {
+            margin: 10px 0px;
+        }
+
+        footer {
+            padding: 50px 0px;
+            font-family: 'Noto Sans', Arial, sans-serif;
+        }
+
+        .f1, .f2, .f3 {
+            margin: 0px 10px;
+            text-align: center;
+        }
+
+        .f1 > h1, .f1 > p {
+            text-align: center;
+            margin: 10px 0px;
+        }
+
+        .f2 > ul {
+            list-style: none;
+        }
+
+        .f2 ul > li {
+            font-family: 'Black Roads', Arial, sans-serif;
+            margin: 10px 0px;
+            font-size: larger;
+        }
+
+        .f2 ul li > a {
+            color: black;
+            text-decoration: underline;
+        }
+
+        .f3 a > i {
+            font-size: 40px;
+            margin-right: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">Sign a Car!</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Vantagens</a></li>
+                <li><a href="#">Ofertas do dia</a></li>
+                <li><a href="#">Nossos planos</a></li>
+                <li><a href="#">Quem Somos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <div class="grid1">
+            <div class="descricao">
+                <h1>lorem ipsum</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est tenetur suscipit veritatis cumque quae eligendi labore saepe eaque quia voluptatibus! Hic accusantium numquam dolorem sapiente excepturi ab soluta? Alias, quidem.</p>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad magnam a est voluptatem ratione? Quis, ipsam magni assumenda deleniti odio inventore totam! Illum, eaque necessitatibus reprehenderit minima doloribus odit sint.</p>
+            </div>
+            <div class="img">
+                <img src="imagens/minis.jpg">
+            </div>
+        </div>
+    </section>
+
+    <section id="vantagens">
+        <h1>Vantagens do SIGN A CAR!</h1>
+        <div class="grid2">
+            <div class="v1">
+                <i class="fas fa-car"></i>
+                <h3>Inúmeras opções</h3>
+                <p>Existem várias opções de carros aqui no SIGN A CAR!, desde carros compactos de entrada até sedans e SUVs Premium!</p>
+            </div>
+            <div class="v2">
+                <i class="fas fa-money-bill-wave"></i>
+                <h3>Várias formas de pagamento</h3>
+                <p>Pagamento com as opções de cartão de crédito e débito, boleto e PIX.</p>
+            </div>
+            <div class="v3">
+               <i class="fas fa-taxi"></i>
+               <h3>Planos especiais para frotistas</h3>
+               <p>Trabalha como motorista de aplicativo ou como frotista? Ótimo! Temos também <a class="link-pag" href="#">planos especiais</a> para você!</p>
+            </div>
+            <div class="v4">
+                <i class="fas fa-piggy-bank"></i>
+                <h3>Venda seu carro e nós o disponibilizaremos para aluguel</h3>
+                <p>Venda seu carro seminovo para nós e disponibilizaremos-no para aluguel na nossa seção especial para <a class="link-pag" href="#">Seminovos</a></p>
+            </div>
+            <div class="v5">
+                <i class="fas fa-user-friends"></i>
+                <h3>Aluguel para pessoa jurídica</h3>
+                <p>Também há opções para aluguel de carros para empresas. Confira nossas <a class="link-pag" href="#">ofertas especiais para executivos</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ofertas-dia">
+        <h1>Ofertas do dia!</h1>
+        <div class="grid3">
+            <div class="oferta1">
+                <img src="imagens/mobi.jpg">
+                <h3>Fiat Mobi</h3>
+                <h3>R$ 500,00/mês</h3>
+                <ul class="lista">
+                    <li>Compacto</li>
+                    <li>Motorização	1.0</li>
+                    <li>Combustível: Etanol e Gasolina</li>
+                    <li>Potência (cv):	75(E) 73(G)</li>
+                    <li>Consumo cidade (km/l):  8,8(E) 12,7(G)</li>
+                    <li>Consumo estrada (km/l):	9,9(E) 14,3(G)</li>
+                </ul>
+                <button class="btn-assinar">Veja mais</button>
+            </div>
+
+            <div class="oferta2">
+                <img src="imagens/argo.png">
+                <h3>Fiat Argo</h3>
+                <h3>R$ 1200,00/mês</h3>
+                <ul class="lista">
+                    <li>Hatch</li>
+                    <li>Motorização	1.3</li>
+                    <li>Combustível: Etanol e Gasolina</li>
+                    <li>Potência (cv):	109	(E)	101(G)</li>
+                    <li>Consumo cidade (km/l): 8,7(E) 12,6(G)</li>
+                    <li>Consumo estrada (km/l):	10(E) 14,7(G)</li>
+                </ul>
+                <button class="btn-assinar">Veja mais</button> 
+            </div>
+
+            <div class="oferta3">
+                <img src="imagens/pug2008.jpg">
+                <h3>Peugeot 2008</h3>
+                <h3>R$ 2100,00/mês</h3>
+                <ul class="lista">
+                    <li>SUV</li>
+                    <li>Motorização	1.8</li>
+                    <li>Combustível: Etanol e Gasolina</li>
+                    <li>Potência (cv):	118(E)	115(G)</li>
+                    <li>Consumo cidade (km/l):  7,3(E) 10,5(G)</li>
+                    <li>Consumo estrada (km/l):	8,7(E) 12,8(G)</li>
+                </ul>
+                <button class="btn-assinar">Veja mais</button> 
+            </div>
+        </div>
+
+        <div class="grid3">
+            <div class="oferta4">
+                <img src="imagens/kwid.jpg">
+                <h3>Renault Kwid</h3>
+                <h3>R$ 750,00/mês</h3>
+                <ul class="lista">
+                    <li>Compacto</li>
+                    <li>Motorização	1.0</li>
+                    <li>Combustível: Etanol e Gasolina</li>
+                    <li>Potência (cv):	70(E)	66(G)</li>
+                    <li>Consumo cidade (km/l):  10,3(E) 14,9(G)</li>
+                    <li>Consumo estrada (km/l):	10,8(E) 15,6(G)</li>
+                </ul>
+                <button class="btn-assinar">Veja mais</button>
+            </div>
+
+            <div class="oferta5">
+                <img src="imagens/gol.png">
+                <h3>Volkswagen Gol</h3>
+                <h3>R$ 1700,00/mês</h3>
+                <ul class="lista">
+                    <li>Hatch</li>
+                    <li>Motorização	1.6</li>
+                    <li>Combustível: Etanol e Gasolina</li>
+                    <li>Potência (cv):	104(E)	101(G)</li>
+                    <li>Consumo cidade (km/l): 7,8(E) 11,1(G)</li>
+                    <li>Consumo estrada (km/l):	9,5(E) 13,6(G)</li>
+                </ul>
+                <button class="btn-assinar">Veja mais</button> 
+            </div>
+
+            <div class="oferta6">
+                <img src="imagens/jeep.png">
+                <h3>Jeep Renegade</h3>
+                <h3>R$ 2000,00/mês</h3>
+                <ul class="lista">
+                    <li>SUV</li>
+                    <li>Motorização	1.8</li>
+                    <li>Combustível: Etanol e Gasolina</li>
+                    <li>Potência (cv):	132(E)	130(G)</li>
+                    <li>Consumo cidade (km/l):  6,9(E) 10(G)</li>
+                    <li>Consumo estrada (km/l):	8,6(E) 12(G)</li>
+                </ul>
+                <button class="btn-assinar">Veja mais</button> 
+            </div>
+        </div>
+    </section>
+
+    <section id="planos">
+        <h1>Nossos planos</h1>
+        <p>Para poder alugar um carro, antes você precisa se tornar um assinante do SIGN A CAR. Escolha um dos planos abaixo e depois poderá assinar o carro que quiser!</p>
+        <div class="grid4">
+            <div class="plano1">
+                <h3>Start</h3>
+                <p>VOCÊ PAGA PARCELAS FIXAS MENSAIS, SEM INVESTIMENTO INICIAL E PODE DIRIGIR ATÉ 2000KM POR MÊS. O QUE EXCEDER SERÁ COBRADO APENAS NO MÊS SEGUINTE.</p>
+                <button class="botao-plano">Ver mais sobre este plano</button>
+            </div>
+            <div class="plano2">
+                <h3>Premium</h3>
+                <p>VOCÊ PAGA PARCELAS FIXAS MENSAIS, SEM INVESTIMENTO INICIAL E PODE DIRIGIR 3000KM POR MÊS. O QUE EXCEDER SERÁ COBRADO APENAS NO MÊS SEGUINTE.</p>
+                <button class="botao-plano">Ver mais sobre este plano</button>
+            </div>
+            <div class="plano3">
+                <h3>Pro</h3>
+                <p>VOCÊ PAGA PARCELAS FIXAS MENSAIS, SEM INVESTIMENTO INICIAL E PODE DIRIGIR 4000KM POR MÊS. O QUE EXCEDER SERÁ COBRADO APENAS NO MÊS SEGUINTE.</p>
+                <button class="botao-plano">Ver mais sobre este plano</button>
+            </div>
+            <div class="plano4">
+                <h3>Para frotistas</h3>
+                <p>VOCÊ PAGA PARCELAS FIXAS MENSAIS, SEM INVESTIMENTO INICIAL E PODE DIRIGIR 10000KM POR MÊS. O QUE EXCEDER SERÁ COBRADO APENAS NO MÊS SEGUINTE.</p>
+                <button class="botao-plano">Ver mais sobre este plano</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="quem-somos">
+        <h1>Quem somos</h1>
+        <p>Saiba mais sobre a SIGN A CAR! e sua história no mercado autmobilístico brasileiro.</p>
+        <div class="grid3">
+            <div class="sobre1">
+                <i class="fas fa-building"></i>
+                <h3>Companhia fundada em 2015</h3>
+            </div>
+            <div class="sobre2">
+                <i class="fas fa-award"></i>
+                <h3>Prêmio de melhor serviço de Carro por Assinatura pela revista Auto Esporte em 2017</h3>
+            </div>
+            <div class="sobre3">
+                <i class="fas fa-award"></i>
+                <h3>Prêmio de melhor serviço de Carro por Assinatura pela revista Quatro Rodas em 2019</h3>
+            </div>
+        </div>
+        <div class="grid3">
+            <div class="sobre1">
+                <i class="fas fa-users"></i>
+                <p><i>Estou muito satisfeito com os serviços prestados pela SIGN A CAR! Recomendo muito! Sou motorista de aplicativo e o plano especial para frotistas me agradou muito!</i></p>
+                <h3>João Irineu - cliente SIGN A CAR! desde 2018</h3>
+            </div>
+            <div class="sobre2">
+                <i class="fas fa-users"></i>
+                <p><i>A SIGN A CAR oferece planos muitos bons e muitas opções de carros para assinatura! Precisávamos de um SUV e encontramos a SIGN A CAR com um melhor preço e melhores termos e propostas do que a concorrência!</i></p>
+                <h3>Lili Massucci - cliente SIGN A CAR! desde 2019</h3>
+            </div>
+            <div class="sobre3">
+                <i class="fas fa-users"></i>
+                <p><i>Excelente serviço, não é à toa que fora tão premiada nos últimos anos!</i></p>
+                <h3>Renan Evangelista - cliente da SIGN A CAR! desde 2016</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="conta">
+        <div class="grid1">
+            <div class="gostou">
+                <h1>Crie sua conta agora!</h1>
+                <p>Gostou dos nossos serviços e termos, mas ainda não tem conta? Sem problemas! Crie já sua conta na SIGN A CAR preenchendo o formulário ao lado!</p>
+                <span>ou...</span>
+                <br>
+                <br>
+                <a class="login" href="#">Faça login se já for cliente</a>
+            </div>
+            <div class="form">
+                <h1>Cadastro</h1>
+                <form method="get">
+                    <label for="email">Email:</label>
+                    <input class="email" type="email" id="email" name="email"> 
+                    <br>
+                    <label for="senha">Senha:</label>
+                    <input class="senha" type="password" id="senha" name="senha">
+                    <br>
+                    <input class="submit" type="submit" value="Criar conta agora!">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="grid3">
+            <div class="f1">
+                <h1>SIGN A CAR!</h1>
+                <p>&copy;2015 - 2021 - Todos os direitos reservados</p>
+            </div>
+            <div class="f2">
+                <ul>
+                    <li><a href="#">VANTAGENS</a></li>
+                    <li><a href="#">OFERTAS DO DIA</a></li>
+                    <li><a href="#">NOSSOS PLANOS</a></li>
+                    <li><a href="#">QUEM SOMOS</a></li>
+                </ul>
+            </div>
+            <div class="f3">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
